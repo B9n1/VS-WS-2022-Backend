@@ -1,6 +1,11 @@
 version: "3.8"
 
 services:
+  api-server:
+    container_name: api-server
+    build: ./src  
+    ports:
+      - "8080:8080"
   database:
     container_name: database
     image: postgres:12.8
