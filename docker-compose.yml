@@ -6,7 +6,9 @@ services:
     build: ./src  
     ports:
       - "8080:8080"
-  database:
+    links:
+      - "db:db"
+  db:
     container_name: database
     image: postgres:12.8
     restart: always
