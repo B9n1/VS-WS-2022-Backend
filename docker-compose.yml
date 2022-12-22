@@ -1,6 +1,7 @@
 version: "3.8"
 
 services:
+# externe container packen
   api-server:
     container_name: api-server
     build: ./src  
