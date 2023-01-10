@@ -3,7 +3,7 @@ This Respository is for the Lab for disributed systems 2022
 
 # Deployment
 After cloning this project use
-´´´
+
 docker-compose up -d
 ´´´
 to deploy this service
