@@ -1,16 +1,28 @@
-version: "3.8"
-
+version: "3.9"
 services:
-# externe container packen
-  api-server:
-    container_name: api-server
+  backend:
+    container_name: backend
     build: ./src  
     ports:
       - "8080:8080"
-    links:
-      - "db:db"
-  db:
-    container_name: database
+    networks:
+      - todonet
+    depends_on:
+      - database
+  frontend:
+    container_name: frontend
+    networks:
+      - todonet
+    ports:
+      - "8090:8090"
+    expose:
+      - "8090"
+    environment:
+      - SERVER_PORT=8090
+      - BACKEND_ENDPOINT=http://backend:8080/
+    image: "maeddes/hsefrontend:v231"
+  database:
+    container_name: postgresdb
     image: postgres:12.8
     restart: always
     environment:
@@ -19,8 +31,14 @@ services:
       - POSTGRES_DB=todo
     ports:
       - 5432:5432
+    networks:
+      - todonet
     volumes:
-      - db:/var/lib/postgresql/data 
+      - todovol:/var/lib/postgresql/data 
+networks:
+  todonet:
+    name: todonet
 
 volumes:
-  db:
+  todovol:
+    external: false
