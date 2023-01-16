@@ -3,14 +3,14 @@ package db
 import (
 	models "VS-WS-2022-Backend/Models"
 	"log"
+	"os"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 func Init() *gorm.DB {
-	dbURL := "postgres://TodoApp:MyTodo@postgresdb:5432/todo"
-
+	dbURL := os.Getenv("DB_URL")
 	db, err := gorm.Open(postgres.Open(dbURL), &gorm.Config{})
 
 	if err != nil {

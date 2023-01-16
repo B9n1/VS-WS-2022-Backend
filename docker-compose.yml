@@ -9,6 +9,8 @@ services:
       - todonet
     depends_on:
       - database
+    environment:
+      - DB_URL=postgres://TodoApp:MyTodo@postgresdb:5432/todo
   frontend:
     container_name: frontend
     networks:
