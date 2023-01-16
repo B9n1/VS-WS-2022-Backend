@@ -3,12 +3,26 @@ package main
 import (
 	"VS-WS-2022-Backend/controllers"
 	"VS-WS-2022-Backend/db"
+	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
+func loadEnvironmentVariables() {
+	if _, err := os.Stat(".env"); err == nil {
+		err := godotenv.Load(".env")
+		if err != nil {
+			log.Fatal("Error loading .env file")
+		}
+	}
+
+}
+
 func main() {
+	loadEnvironmentVariables()
 	handleRequests()
 }
 
