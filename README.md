@@ -1,5 +1,10 @@
 # VS-WS-2022-Backend
-This Respository is for the Lab for disributed systems 2022
+This Respository is for the Lab for disributed systems 2022.
+This project is a REST Api Server for note taking.
+
+## Technologies
+This Projekt is written in [Go](https://go.dev) and uses the official [PostgreSQL](https://www.postgresql.org) image as database.
+As orm this project uses [Gorm](https://gorm.io).
 
 # Deployment
 After cloning this project use
