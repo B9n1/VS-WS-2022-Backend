@@ -4,7 +4,7 @@ This project is a REST Api Server for note taking.
 
 ## Technologies
 This Projekt is written in [Go](https://go.dev) and uses the official [PostgreSQL](https://www.postgresql.org) image as database.
-As orm this project uses [Gorm](https://gorm.io).
+As orm this project uses [Gorm](https://gorm.io) and the webframework is [Gin](https://gin-gonic.com).
 
 # Deployment
 After cloning this project use
